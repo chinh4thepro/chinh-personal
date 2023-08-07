@@ -19,7 +19,7 @@ fi
 
 LICENSE="MIT"
 SLOT="0"
-IUSE="evdev experimental jack +libinput +logind mpd mpris network +popups pipewire pulseaudio sndio systemd test tray +udev upower wifi hyprland libcxx"
+IUSE="evdev experimental jack +libinput +logind mpd mpris network +popups pipewire pulseaudio sndio systemd test tray +udev upower wifi"
 REQUIRED_USE="
 	mpris? ( logind )
 	upower? ( logind )
@@ -76,9 +76,6 @@ DEPEND="${RDEPEND}
 "
 
 src_prepare() {
-	if use hyprland; then
-		PATCHES+=("${FILESDIR}/${PN}-hyprland.patch")
-		fi
 	default
 }
 
@@ -87,7 +84,6 @@ src_configure() {
 		-Dman-pages=enabled
 		-Dcava=disabled
 		-Dcpp_std=c++20
-		$(meson_use libcxx)
 		$(meson_feature evdev libevdev)
 		$(meson_feature jack)
 		$(meson_feature libinput)

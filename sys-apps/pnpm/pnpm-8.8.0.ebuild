@@ -6,7 +6,7 @@ EAPI=8
 DESCRIPTION="Fast, disk space efficient package manager"
 HOMEPAGE="https://pnpm.io/"
 
-SRC_URI="https://github.com/pnpm/pnpm/archive/refs/tags/v${PV}.tar.gz"
+SRC_URI="https://github.com/pnpm/pnpm/archive/refs/tags/v${PV}.tar.gz -> pnpm-v${PV}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"

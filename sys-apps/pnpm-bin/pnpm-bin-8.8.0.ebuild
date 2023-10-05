@@ -19,7 +19,7 @@ DEPEND="${RDEPEND}"
 
 S="${WORKDIR}"
 
-QA_FLAGS_IGNORED="/usr/bin/${PN}-bin"
+QA_FLAGS_IGNORED="/usr/bin/${PN}"
 
 src_install() {
 	newbin "${DISTDIR}/pnpm-linux-x64" ${PN}

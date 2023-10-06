@@ -1,0 +1,8 @@
+--- run-build1.sh	2023-10-05 10:27:12.483802976 -0500
++++ run-build.sh	2023-10-05 10:27:33.565833877 -0500
+@@ -67,4 +67,4 @@
+ source $REPOROOT/eng/common/native/init-distro-rid.sh
+ initDistroRidGlobal "$os" "$arch" ""
+ 
+-. "$REPOROOT/eng/common/build.sh" --build --restore "${args[@]}"
++. "$REPOROOT/eng/common/build.sh" --build --restore --verbosity normal "${args[@]}"

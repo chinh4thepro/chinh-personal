@@ -1,0 +1,11 @@
+--- Directory.Build.propsold	2023-10-05 11:14:30.139103325 -0500
++++ Directory.Build.props	2023-10-05 11:14:46.031211948 -0500
+@@ -41,7 +41,7 @@
+   </PropertyGroup>
+ 
+   <PropertyGroup>
+-    <LogVerbosity Condition="'$(LogVerbosity)'==''">minimal</LogVerbosity>
++    <LogVerbosity Condition="'$(LogVerbosity)'==''">normal</LogVerbosity>
+   </PropertyGroup>
+ 
+   <PropertyGroup>

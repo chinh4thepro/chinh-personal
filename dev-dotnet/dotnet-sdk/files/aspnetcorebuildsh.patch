@@ -1,0 +1,11 @@
+--- build1.sh	2023-10-05 10:01:15.173623475 -0500
++++ build.sh	2023-10-05 10:01:38.041781612 -0500
+@@ -14,7 +14,7 @@
+ ci=false
+ binary_log=false
+ exclude_ci_binary_log=false
+-verbosity='minimal'
++verbosity='normal'
+ run_restore=''
+ run_build=true
+ run_pack=false

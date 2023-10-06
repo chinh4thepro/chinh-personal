@@ -1,0 +1,9 @@
+--- build1.sh	2023-10-05 10:05:16.607526462 -0500
++++ build.sh	2023-10-05 10:05:40.775772740 -0500
+@@ -29,5 +29,5 @@
+   scriptroot=$(cygpath -d "$scriptroot")
+   powershell -c "$scriptroot\\build.cmd" $@
+ else
+-  "$scriptroot/eng/build.sh" $@
++  "$scriptroot/eng/build.sh" --verbosity normal $@
+ fi

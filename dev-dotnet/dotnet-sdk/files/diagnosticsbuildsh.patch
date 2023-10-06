@@ -1,0 +1,8 @@
+--- build1.sh	2023-10-05 10:07:37.363586271 -0500
++++ build.sh	2023-10-05 10:07:58.294671224 -0500
+@@ -13,4 +13,4 @@
+ done
+ 
+ scriptroot="$( cd -P "$( dirname "$source" )" && pwd )"
+-"$scriptroot/eng/build.sh" --restore $@
++"$scriptroot/eng/build.sh" --restore --verbosity normal $@

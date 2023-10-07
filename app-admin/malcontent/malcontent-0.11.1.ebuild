@@ -35,16 +35,8 @@ BDEPEND="
     dev-libs/libglib-testing
 "
 
-S="${WORKDIR}/${PN}-${PV}"
+S="${WORKDIR}/${P}"
 
 src_prepare() {
 	default
-}
-
-src_configure() {
-	meson_src_configure
-}
-
-src_install() {
-	meson_src_install
 }

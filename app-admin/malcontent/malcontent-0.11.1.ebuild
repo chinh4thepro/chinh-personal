@@ -1,6 +1,6 @@
 EAPI=8
 
-inherit meson udev systemd pam
+inherit meson
 
 DESCRIPTION="Parental controll for applications"
 HOMEPAGE="https://gitlab.freedesktop.org/pwithnall/malcontent"

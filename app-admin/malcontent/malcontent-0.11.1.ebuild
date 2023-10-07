@@ -10,6 +10,7 @@ SRC_URI="https://gitlab.freedesktop.org/pwithnall/malcontent/-/archive/${PV}/${P
 KEYWORDS="~amd64"
 LICENSE="GPL-2"
 SLOT="0"
+IUSE="gtk-doc"
 
 # Build deps taken from arch pkgbuild. Might change later
 DEPEND="
@@ -29,7 +30,7 @@ BDEPEND="
 	dev-util/meson
 	dev-vcs/git
     dev-libs/gobject-introspection
-    dev-util/gtk-doc
+    gtk-doc? ( dev-util/gtk-doc )
     app-text/yelp-tools
     dev-libs/libglib-testing
 "

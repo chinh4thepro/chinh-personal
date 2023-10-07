@@ -1,8 +1,8 @@
 EAPI=8
 
-inherit meson
+inherit meson xdg
 
-DESCRIPTION="Parental controll for applications"
+DESCRIPTION="Parental control for applications"
 HOMEPAGE="https://gitlab.freedesktop.org/pwithnall/malcontent"
 
 SRC_URI="https://gitlab.freedesktop.org/pwithnall/malcontent/-/archive/${PV}/${PN}-${PV}.tar.gz"

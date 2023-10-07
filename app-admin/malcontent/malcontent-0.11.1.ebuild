@@ -34,9 +34,3 @@ BDEPEND="
     app-text/yelp-tools
     dev-libs/libglib-testing
 "
-
-S="${WORKDIR}/${P}"
-
-src_prepare() {
-	default
-}

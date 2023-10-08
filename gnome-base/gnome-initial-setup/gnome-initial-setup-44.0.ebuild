@@ -1,6 +1,6 @@
 EAPI=8
 
-inherit meson desktop readme.gentoo-r1 udev systemd pam
+inherit meson vala desktop readme.gentoo-r1 udev systemd pam
 
 DESCRIPTION="Gnome initial setup"
 HOMEPAGE="https://gitlab.gnome.org/GNOME/gnome-initial-setup"
@@ -43,12 +43,14 @@ DEPEND="
 
 BDEPEND="
 	dev-util/meson
-	dev-vcs/git"
+	dev-vcs/git
+    $(vala_depend)
+"
 
 src_prepare() {
 	default
 	xdg_en
-
+    vala_setup
 }
 
 src_configure() {

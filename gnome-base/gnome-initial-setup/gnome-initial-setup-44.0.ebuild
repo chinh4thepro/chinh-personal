@@ -13,6 +13,7 @@ SRC_URI="https://github.com/GNOME/gnome-initial-setup/archive/refs/tags/${PV}.ta
 LICENSE="GPL-2+"
 SLOT="44"
 KEYWORDS="~amd64"
+IUSE="gnome-online-accounts"
 
 DEPEND="
 	sys-apps/accountsservice
@@ -26,7 +27,7 @@ DEPEND="
 	gnome-base/gnome-desktop
 	gnome-base/gnome-control-center
 	gnome-base/gnome-keyring
-	net-libs/gnome-online-accounts
+	gnome-online-accounts? ( net-libs/gnome-online-accounts )
 	gnome-base/gsettings-desktop-schemas
 	gui-libs/gtk
 	dev-libs/json-glib

@@ -14,7 +14,7 @@ IUSE="gtk-doc"
 
 # Build deps taken from arch pkgbuild. Might change later
 DEPEND="
-	sys-apps/accountsservice
+    sys-apps/accountsservice
     dev-python/pygobject
     sys-apps/dbus
     sys-apps/flatpak
@@ -27,8 +27,8 @@ DEPEND="
 "
 
 BDEPEND="
-	dev-util/meson
-	dev-vcs/git
+    dev-util/meson
+    dev-vcs/git
     dev-libs/gobject-introspection
     gtk-doc? ( dev-util/gtk-doc )
     app-text/yelp-tools

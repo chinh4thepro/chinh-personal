@@ -54,18 +54,18 @@ src_prepare() {
 }
 
 src_configure() {
-	local emesonargs=(
-		-Ddesktop_docs=true
-		$(meson_feature X wayland)
-		$(meson_feature udev)
-		$(meson_use debug debug_tools)
-		$(meson_use gtk-doc gtk_doc)
-		$(meson_feature systemd)
-		-Dinstalled_tests=false
-		-Dbuild_gtk4=true
-		-Dlegacy_library=false
-		-Dintrospection=true
-	)
+#	local emesonargs=(
+#		-Ddesktop_docs=true
+#		$(meson_feature X wayland)
+#		$(meson_feature udev)
+#		$(meson_use debug debug_tools)
+#		$(meson_use gtk-doc gtk_doc)
+#		$(meson_feature systemd)
+#		-Dinstalled_tests=false
+#		-Dbuild_gtk4=true
+#		-Dlegacy_library=false
+#		-Dintrospection=true
+#	)
 
 	meson_src_configure
 }

@@ -38,19 +38,19 @@ DEPEND="
 	x11-libs/pango
 	sys-auth/polkit
 	net-libs/webkit-gtk
-    app-admin/malcontent
+	app-admin/malcontent
 "
 
 BDEPEND="
 	dev-util/meson
 	dev-vcs/git
-    $(vala_depend)
+	$(vala_depend)
 "
 
 src_prepare() {
 	default
 	xdg_en
-    vala_setup
+	vala_setup
 }
 
 src_configure() {

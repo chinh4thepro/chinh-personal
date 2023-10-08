@@ -10,7 +10,7 @@ SRC_URI="https://github.com/GNOME/gnome-initial-setup/archive/refs/tags/${PV}.ta
 KEYWORDS="~amd64"
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="X gtk-doc +systemd"
+IUSE="debug X gtk-doc"
 
 DEPEND="
 	sys-apps/accountsservice

@@ -52,7 +52,7 @@ BDEPEND="
 "
 
 
-src_configure() {
+src_prepare() {
 	default
 	vala_setup
 }

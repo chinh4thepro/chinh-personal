@@ -1,16 +1,18 @@
+# Copyright 1999-2023 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
 EAPI=8
 
-inherit meson vala desktop readme.gentoo-r1 udev systemd pam
+inherit meson vala xdg
 
-DESCRIPTION="Gnome initial setup"
+DESCRIPTION="Helps you to set up your OS whenn you boot for the first time"
 HOMEPAGE="https://gitlab.gnome.org/GNOME/gnome-initial-setup"
 
 SRC_URI="https://github.com/GNOME/gnome-initial-setup/archive/refs/tags/${PV}.tar.gz"
 
+LICENSE="GPL-2+"
+SLOT="44"
 KEYWORDS="~amd64"
-LICENSE="GPL-2"
-SLOT="0"
-IUSE="debug +X +wayland gtk-doc +udev +systemd"
 
 DEPEND="
 	sys-apps/accountsservice
@@ -19,10 +21,12 @@ DEPEND="
 	x11-libs/gdk-pixbuf
 	gnome-base/gdm
 	app-misc/geoclue
+	sci-geosciences/geocode-glib
 	dev-libs/glib
 	gnome-base/gnome-desktop
 	gnome-base/gnome-control-center
 	gnome-base/gnome-keyring
+	net-libs/gnome-online-accounts
 	gnome-base/gsettings-desktop-schemas
 	gui-libs/gtk
 	dev-libs/json-glib
@@ -31,6 +35,7 @@ DEPEND="
 	gnome-base/libgnomekbd
 	dev-libs/libgweather
 	app-i18n/ibus
+	app-admin/malcontent
 	net-libs/libnma
 	dev-libs/libpwquality
 	net-libs/rest
@@ -38,41 +43,16 @@ DEPEND="
 	x11-libs/pango
 	sys-auth/polkit
 	net-libs/webkit-gtk
-	app-admin/malcontent
 "
 
 BDEPEND="
+	$(vala_depend)
 	dev-util/meson
 	dev-vcs/git
-	$(vala_depend)
 "
 
-src_prepare() {
-	default
-	xdg_en
-	vala_setup
-}
 
 src_configure() {
-#	local emesonargs=(
-#		-Ddesktop_docs=true
-#		$(meson_feature X wayland)
-#		$(meson_feature udev)
-#		$(meson_use debug debug_tools)
-#		$(meson_use gtk-doc gtk_doc)
-#		$(meson_feature systemd)
-#		-Dinstalled_tests=false
-#		-Dbuild_gtk4=true
-#		-Dlegacy_library=false
-#		-Dintrospection=true
-#	)
-
-	meson_src_configure
+	default
+	vala_setup
 }
-
-src_install() {
-	meson_src_install
-}
-
-
-# Still need to set up users and groups

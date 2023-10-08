@@ -1,6 +1,6 @@
 EAPI=8
 
-inherit meson xdg
+inherit meson vala xdg
 
 DESCRIPTION="Parental control for applications"
 HOMEPAGE="https://gitlab.freedesktop.org/pwithnall/malcontent"
@@ -33,4 +33,9 @@ BDEPEND="
     gtk-doc? ( dev-util/gtk-doc )
     app-text/yelp-tools
     dev-libs/libglib-testing
+    $(vala_depend)
 "
+src_prepare() {
+    default
+    vala_setup
+}

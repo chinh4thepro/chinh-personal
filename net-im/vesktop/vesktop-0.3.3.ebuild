@@ -19,7 +19,7 @@ DESCRIPTION="A cross platform electron-based desktop app aiming to give you a sn
 HOMEPAGE="https://github.com/Vencord/Vesktop/"
 SRC_URI="https://github.com/Vencord/Vesktop/releases/download/v${PV}/${MY_PN}.tar.gz"
 
-LICENSE="all-rights-reserved"
+LICENSE="GPL-3+"
 SLOT="0"
 KEYWORDS="amd64"
 RESTRICT="bindist mirror strip test"

@@ -14,7 +14,9 @@ LICENSE="GPL-2+"
 SLOT="44"
 KEYWORDS="~amd64"
 
-DEPEND="
+RDEPEND="
+	acct-group/gnome-initial-setup
+	acct-user/gnome-initial-setup
 	sys-apps/accountsservice
 	x11-libs/cairo
 	media-libs/fontconfig
@@ -44,6 +46,8 @@ DEPEND="
 	sys-auth/polkit
 	net-libs/webkit-gtk
 "
+
+DEPEND="${RDEPEND}"
 
 BDEPEND="
 	$(vala_depend)

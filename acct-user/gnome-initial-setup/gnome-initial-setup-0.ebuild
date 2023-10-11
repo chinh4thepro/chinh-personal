@@ -7,6 +7,7 @@ inherit acct-user
 
 DESCRIPTION="User for gnome-initial-setup"
 ACCT_USER_ID=102
-ACCT_USER_GROUPS=( gnome-initial-setup )
+ACCT_USER_GROUPS=( gnome-initial-setup video )
+ACCT_USE_HOME=/var/gnome-initial-setup
 
 acct-user_add_deps

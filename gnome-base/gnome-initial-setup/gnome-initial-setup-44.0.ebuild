@@ -15,8 +15,6 @@ SLOT="44"
 KEYWORDS="~amd64"
 
 RDEPEND="
-	acct-group/gnome-initial-setup
-	acct-user/gnome-initial-setup
 	sys-apps/accountsservice
 	x11-libs/cairo
 	media-libs/fontconfig
@@ -61,14 +59,8 @@ src_prepare() {
 	vala_setup
 }
 
-src_install() {
-	  meson install -C build --destdir "$pkgdir"
-	  install -d -o root -g 102 -m 750 "$pkgdir/usr/share/polkit-1/rules.d"
-
-	  echo 'u gnome-initial-setup - "GNOME Initial Setup" /run/gnome-initial-setup' |
-	  install -Dm644 /dev/stdin "$pkgdir/usr/lib/sysusers.d/$pkgname.conf"
-	  echo 'd /run/gnome-initial-setup 0700 gnome-initial-setup gnome-initial-setup -' |
-	  install -Dm644 /dev/stdin "$pkgdir/usr/lib/tmpfiles.d/$pkgname.conf"
+pkg_postinst() {
+	tmpfiles_process gnome-initial-setup.conf
 }
 #TODO: figure out how mesonargs works :simd:
 #TODO: useflags?

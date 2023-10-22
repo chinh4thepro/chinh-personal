@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit meson vala xdg
+inherit vala desktop gnome2 meson pam readme.gentoo-r1 systemd udev
 
 DESCRIPTION="Helps you to set up your OS whenn you boot for the first time"
 HOMEPAGE="https://gitlab.gnome.org/GNOME/gnome-initial-setup"

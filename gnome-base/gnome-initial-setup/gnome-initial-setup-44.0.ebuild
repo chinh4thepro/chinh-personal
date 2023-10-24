@@ -67,7 +67,17 @@ src_configure() {
 	      -Dpam-mod-dir=$(getpam_mod_dir)
 	      -Drun-dir=gnome-initial-setup
 	      -Dudev-dir=$(get_udevdir)/rules.d
+          -Duser=gnome-initial-setup
 	)
 
 	meson_src_configure
+}
+
+pkg_postinst() {
+    gnome2_pkg_postinst
+    udev_reload
+}
+
+pkg_postrm() {
+    udev_reload
 }

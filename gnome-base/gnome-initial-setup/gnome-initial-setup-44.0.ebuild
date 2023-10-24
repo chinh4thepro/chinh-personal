@@ -62,12 +62,6 @@ src_prepare() {
 src_configure() {
 	local emesonargs=(
 	      --localstatedir /var
-
-	      -Ddefault-pam-config=exherbo
-	      -Dpam-mod-dir=$(getpam_mod_dir)
-	      -Drun-dir=gnome-initial-setup
-	      -Dudev-dir=$(get_udevdir)/rules.d
-          -Duser=gnome-initial-setup
 	)
 
 	meson_src_configure

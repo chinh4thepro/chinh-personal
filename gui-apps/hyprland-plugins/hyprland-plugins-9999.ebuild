@@ -8,11 +8,13 @@ inherit meson
 if [[ ${PV} == 9999 ]]; then
     inherit git-r3
     EGIT_REPO_URI="https://github.com/hyprwm/hyprland-plugins.git"
+    S="${WORKDIR}/${PN}-9999
 else
     SRC_URI="https://github.com/hyprwm/${PN}/archive/${COMMIT}.tar.gz -> ${P}.gh.tar.gz
         https://github.com/Duckonaut/split-monitor-workspaces/archive/${SPLITCOMMIT}.tar.gz \
         -> ${P}-split-monitor-workspaces.gh.tar.gz
     "
+    S="${WORKDIR}/${PN}-${COMMIT}"
     KEYWORDS="~amd64"
 fi
 
@@ -21,8 +23,6 @@ COMMIT=f9578d28d272fb61753417e175b0fcd5bedc1443
 SPLITCOMMIT=d8c97d60753f70d686588ad3b0a877e2ca67ff72
 DESCRIPTION="A blazing fast wayland wallpaper utility"
 HOMEPAGE="https://github.com/hyprwm/hyprland-plugins"
-
-S="${WORKDIR}/${PN}-${COMMIT}"
 
 LICENSE="BSD"
 SLOT="0"

@@ -32,7 +32,7 @@ REQUIRED_USE="|| ( borders-plus-plus csgo-vulkan-fix hyprbars split-monitor-work
 RDEPEND="gui-wm/hyprland"
 DEPEND="${RDEPEND}"
 BDEPEND="
-	~gui-wm/hyprland-${PV}
+	gui-wm/hyprland
 	x11-libs/libdrm
 	x11-libs/pixman
 	x11-libs/xcb-util-wm

@@ -8,7 +8,7 @@ inherit meson
 if [[ ${PV} == 9999 ]]; then
     inherit git-r3
     EGIT_REPO_URI="https://github.com/hyprwm/hyprland-plugins.git"
-    S="${WORKDIR}/${PN}-9999
+    S="${WORKDIR}/${PN}-9999"
 else
     SRC_URI="https://github.com/hyprwm/${PN}/archive/${COMMIT}.tar.gz -> ${P}.gh.tar.gz
         https://github.com/Duckonaut/split-monitor-workspaces/archive/${SPLITCOMMIT}.tar.gz \

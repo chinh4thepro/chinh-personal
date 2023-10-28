@@ -15,7 +15,7 @@ CHROMIUM_LANGS="
 
 inherit chromium-2 desktop linux-info optfeature unpacker xdg
 
-DESCRIPTION="A cross platform electron-based desktop app aiming to give you a snappier Discord experience with Vencord pre-installed"
+DESCRIPTION="All-in-one voice and text chat for gamers with Vencord Preinstalled"
 HOMEPAGE="https://github.com/Vencord/Vesktop/"
 SRC_URI="https://github.com/Vencord/Vesktop/releases/download/v${PV}/${MY_PN}.tar.gz"
 

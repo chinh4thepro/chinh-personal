@@ -4,6 +4,7 @@
 EAPI=8
 
 MY_COMMIT="1c7d2f5b3ee262f25bdd3c899eadf17efb656d26"
+MY_PN="SwayOSD"
 
 CRATES="
 	aho-corasick@1.0.2
@@ -201,7 +202,7 @@ CRATES="
 	zvariant_utils@1.0.1
 "
 
-inherit cargo meson
+inherit cargo
 
 DESCRIPTION="A GTK based on screen display for keyboard shortcuts like caps-lock and volume"
 HOMEPAGE="https://github.com/ErikReider/SwayOSD/"
@@ -209,7 +210,7 @@ SRC_URI="
 	https://github.com/ErikReider/SwayOSD/archive/${MY_COMMIT}.tar.gz -> ${P}.tar.gz
 	${CARGO_CRATE_URIS}
 "
-S="${WORKDIR}/${PN}-${MY_COMMIT}"
+S="${WORKDIR}/${MY_PN}-${MY_COMMIT}"
 
 LICENSE="GPL-3+"
 LICENSE+="
@@ -224,7 +225,7 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 DEPEND="
-    media-sound/pulseaudio
+    media-libs/libpulse
     dev-libs/libinput
     gui-libs/gtk
     gui-libs/gtk-layer-shell

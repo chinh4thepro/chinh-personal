@@ -1,2 +1,3 @@
 amd64 clang-desktop dev
+amd64 systemd-mergedusr-desktop dev
 amd64 systemd-clang-mergedusr-desktop dev

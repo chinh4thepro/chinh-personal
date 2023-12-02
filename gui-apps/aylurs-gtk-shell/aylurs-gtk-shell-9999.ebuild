@@ -4,14 +4,15 @@
 EAPI=8
 
 MY_PV="v${PV}-beta"
+MY_PN="ags"
 
 inherit meson
 
 if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
-	EGIT_REPO_URI="https://github.com/Aylur/${PN}.git"
+	EGIT_REPO_URI="https://github.com/Aylur/${MY_PN}.git"
 else
-	SRC_URI="https://github.com/Aylur/${PN}/archive/refs/rags/${MY_PV}.tar.gz -> ${P}.tar.gz"
+	SRC_URI="https://github.com/Aylur/${MY_PN}/archive/refs/rags/${MY_PV}.tar.gz -> ${P}.tar.gz"
 	KEYWORDS="~amd64"
 	S="${WORKDIR}/${PN}-${PV}"
 fi

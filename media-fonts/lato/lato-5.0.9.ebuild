@@ -13,7 +13,6 @@ LICENSE="OFL-1.1"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-DOCS="OFL.txt README.txt"
 S="${WORKDIR}/ttf"
 FONT_SUFFIX="ttf"
 

@@ -12,9 +12,12 @@ if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/Aylur/${MY_PN}.git"
 else
-	SRC_URI="https://github.com/Aylur/${MY_PN}/archive/refs/rags/${MY_PV}.tar.gz -> ${P}.tar.gz"
+	SRC_URI="
+		https://github.com/Aylur/${MY_PN}/releases/download/${MY_PV}/${MY_PN}-${MY_PV}.tar.gz -> ${P}.tar.gz
+		https://github.com/Aylur/${MY_PN}/releases/download/${MY_PV}/node_modules-${MY_PV}.tar.gz -> modules.tar.gz
+	"
 	KEYWORDS="~amd64"
-	S="${WORKDIR}/${PN}-${PV}"
+	S="${WORKDIR}/ags"
 fi
 
 DESCRIPTION="Aylurs's Gtk Shell (AGS), An eww inspired gtk widget system."
@@ -45,12 +48,16 @@ RDEPEND="
 "
 
 src_configure() {
-	npm install
-	meson_src_configure
+	mv ${WORKDIR}/node_modules ${S}
+	meson setup build
+}
+
+src_compile() {
+	meson compile -C build
 }
 
 src_install() {
-	meson_src_install
+	newbin "${S}/build/src/com.github.Aylur.ags" ags
 	elog "ags wont run without a config file (usually in ~/.config/ags)."
 	elog "For example configs visit https://github.com/Aylur/ags/wiki"
 }

@@ -48,7 +48,7 @@ RDEPEND="
 "
 
 src_configure() {
-	mv ${WORKDIR}/node_modules ${S}
+	mv "${WORKDIR}/node_modules" "${S}"
 	meson setup build
 }
 

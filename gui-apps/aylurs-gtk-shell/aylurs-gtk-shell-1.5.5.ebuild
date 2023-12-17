@@ -14,7 +14,7 @@ if [[ ${PV} == 9999 ]]; then
 else
 	SRC_URI="
 		https://github.com/Aylur/${MY_PN}/releases/download/${MY_PV}/${MY_PN}-${MY_PV}.tar.gz -> ${P}.tar.gz
-		https://github.com/Aylur/${MY_PN}/releases/download/${MY_PV}/node_modules-${MY_PV}.tar.gz -> modules.tar.gz
+		https://github.com/Aylur/${MY_PN}/releases/download/${MY_PV}/node_modules-${MY_PV}.tar.gz -> node_modules.tar.gz
 	"
 	KEYWORDS="~amd64"
 	S="${WORKDIR}/ags"

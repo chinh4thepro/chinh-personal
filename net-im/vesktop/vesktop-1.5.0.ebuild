@@ -3,10 +3,6 @@
 
 EAPI=8
 
-MY_PN="VencordDesktop-${PV}"
-# A bit hacky lol
-FILESDIR="/var/tmp/portage/net-im/${P}/files"
-
 CHROMIUM_LANGS="
 	af am ar bg bn ca cs da de el en-GB en-US es es-419 et fa fi fil fr gu he hi
 	hr hu id it ja kn ko lt lv ml mr ms nb nl pl pt-BR pt-PT ro ru sk sl sr sv
@@ -17,7 +13,7 @@ inherit chromium-2 desktop linux-info optfeature unpacker xdg
 
 DESCRIPTION="All-in-one voice and text chat for gamers with Vencord Preinstalled"
 HOMEPAGE="https://github.com/Vencord/Vesktop/"
-SRC_URI="https://github.com/Vencord/Vesktop/releases/download/v${PV}/${MY_PN}.tar.gz"
+SRC_URI="https://github.com/Vencord/Vesktop/releases/download/v${PV}/${PN}-${PV}.tar.gz"
 
 LICENSE="GPL-3+"
 SLOT="0"

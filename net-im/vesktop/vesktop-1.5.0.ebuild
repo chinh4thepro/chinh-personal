@@ -36,7 +36,7 @@ QA_PREBUILT="*"
 
 CONFIG_CHECK="~USER_NS"
 
-S="${WORKDIR}/${PN}"
+S="${WORKDIR}/${PN}-${PV}"
 
 src_unpack() {
 	unpack ${PN}.tar.gz
@@ -49,14 +49,12 @@ src_configure() {
 
 
 src_install() {
-	doicon -s 256 "${FILESDIR}/vencorddesktop.png"
-
 	# install .desktop file
-	domenu "${FILESDIR}/vencorddesktop.desktop"
+	domenu "${FILESDIR}/vesktop.desktop"
 
 	exeinto "${DESTDIR}"
 
-	doexe vencorddesktop chrome-sandbox libEGL.so libffmpeg.so libGLESv2.so libvk_swiftshader.so
+	doexe vesktop chrome-sandbox libEGL.so libffmpeg.so libGLESv2.so libvk_swiftshader.so libvulkan.so.1
 
 	insinto "${DESTDIR}"
 	doins chrome_100_percent.pak chrome_200_percent.pak icudtl.dat resources.pak snapshot_blob.bin v8_context_snapshot.bin
@@ -68,7 +66,7 @@ src_install() {
 
 	[[ -x chrome_crashpad_handler ]] && doins chrome_crashpad_handler
 
-	dosym "${DESTDIR}/vencorddesktop" "/usr/bin/vencorddesktop"
+	dosym "${DESTDIR}/vesktop" "/usr/bin/vesktop"
 
 }
 

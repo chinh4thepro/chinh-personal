@@ -50,7 +50,7 @@ src_configure() {
 
 src_install() {
 
-	doicon -s 256 "${FILESDIR}/vencorddesktop.png"
+	doicon -s 256 "${FILESDIR}/vesktop.png"
 	domenu "${FILESDIR}/vesktop.desktop"
 
 	exeinto "${DESTDIR}"

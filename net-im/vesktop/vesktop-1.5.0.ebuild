@@ -49,7 +49,8 @@ src_configure() {
 
 
 src_install() {
-	# install .desktop file
+
+	doicon -s 256 "${FILESDIR}/vencorddesktop.png"
 	domenu "${FILESDIR}/vesktop.desktop"
 
 	exeinto "${DESTDIR}"

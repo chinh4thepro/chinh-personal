@@ -28,6 +28,13 @@ SLOT="0"
 IUSE="upower bluetooth networkmanager tray"
 
 DEPEND="
+	${RDEPEND}
+"
+BDEPEND="
+	dev-util/meson
+"
+RDEPEND="
+	dev-lang/nodejs[npm]
 	dev-lang/typescript
 	dev-libs/gjs
 	gui-libs/gtk
@@ -37,14 +44,6 @@ DEPEND="
 	bluetooth? ( net-wireless/gnome-bluetooth )
 	networkmanager? ( net-misc/networkmanager )
 	tray? ( dev-libs/libdbusmenu )
-"
-BDEPEND="
-	$DEPEND
-	dev-util/meson
-	net-libs/nodejs[npm]
-"
-RDEPEND="
-	$DEPEND
 "
 
 src_configure() {

@@ -1,7 +1,7 @@
 BDEPEND=dev-build/cmake dev-build/meson dev-cpp/eigen dev-python/pygobject dev-python/pycairo gnome-base/librsvg media-libs/glm virtual/pkgconfig >=dev-build/meson-1.2.1 app-alternatives/ninja dev-build/meson-format-array
 DEFINED_PHASES=compile configure install test
 DEPEND=dev-cpp/cairomm dev-cpp/gtkmm:4.0 dev-libs/libspnav sci-libs/opencascade sys-apps/util-linux
-DESCRIPTION=Dune 3D is a parametric 3D CAD application that supports STEP import/export, fillets and chamfers.
+DESCRIPTION=A parametric 3D CAD application.
 EAPI=8
 HOMEPAGE=https://github.com/dune3d/dune3d
 INHERIT=meson
@@ -9,6 +9,6 @@ KEYWORDS=~amd64
 LICENSE=GPL-3
 RDEPEND=dev-cpp/cairomm dev-cpp/gtkmm:4.0 dev-libs/libspnav sci-libs/opencascade sys-apps/util-linux
 SLOT=0
-SRC_URI=https://github.com/dune3d/dune3d/archive/refs/tags/v1.0.0.tar.gz
+SRC_URI=https://github.com/dune3d/dune3d/archive/refs/tags/v1.0.0.tar.gz -> dune3d-1.0.0.tar.gz
 _eclasses_=multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	python-utils-r1	042f4cc53680245bf99a84669b94155a	meson	e322276188f86eacb29ae081ba5485c8
-_md5_=027dbc2a4fcd9992413e9c6fdf80a292
+_md5_=225f5f940ed4994ecb2af4424333178f

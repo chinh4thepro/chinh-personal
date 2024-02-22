@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>chinh4thepro@gmail.com</email>
+		<name>Vincent Phan</name>
+	</maintainer>
+	<upstream>
+		<bugs-to>https://github.com/dune3d/dune3d/issues</bugs-to>
+		<remote-id type="github">dune3d/dune3d</remote-id>
+		<doc lang="en">https://docs.dune3d.org/en/latest/</doc>
+	</upstream>
+</pkgmetadata>

@@ -9,7 +9,7 @@ CHROMIUM_LANGS="
 	sw ta te th tr uk ur vi zh-CN zh-TW
 "
 
-inherit chromium-2 desktop linux-info optfeature unpacker xdg
+inherit chromium-2 desktop linux-info unpacker xdg
 
 DESCRIPTION="All-in-one voice and text chat for gamers with Vencord Preinstalled"
 HOMEPAGE="https://github.com/Vencord/Vesktop/"
@@ -19,11 +19,11 @@ LICENSE="GPL-3+"
 SLOT="0"
 KEYWORDS="amd64"
 RESTRICT="bindist mirror strip test"
-IUSE="notifications +xdg"
+IUSE="notifications"
 
 DEPEND="
 	notifications? ( x11-libs/libnotify )
-	xdg? ( x11-misc/xdg-utils )
+	x11-misc/xdg-utils
 "
 
 BDEPEND="
@@ -46,7 +46,6 @@ src_configure() {
 	default
 	chromium_suid_sandbox_check_kernel_config
 }
-
 
 src_install() {
 

@@ -17,7 +17,7 @@ SRC_URI="https://github.com/Vencord/Vesktop/releases/download/v${PV}/${PN}-${PV}
 
 LICENSE="GPL-3+"
 SLOT="0"
-KEYWORDS="amd64"
+KEYWORDS="~amd64"
 RESTRICT="bindist mirror strip test"
 IUSE="libnotify"
 

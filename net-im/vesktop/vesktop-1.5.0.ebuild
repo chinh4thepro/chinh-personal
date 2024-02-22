@@ -19,10 +19,10 @@ LICENSE="GPL-3+"
 SLOT="0"
 KEYWORDS="amd64"
 RESTRICT="bindist mirror strip test"
-IUSE="notifications"
+IUSE="libnotify"
 
 DEPEND="
-	notifications? ( x11-libs/libnotify )
+	libnotify? ( x11-libs/libnotify )
 	x11-misc/xdg-utils
 "
 

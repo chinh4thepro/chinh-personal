@@ -31,10 +31,9 @@ DEPEND="
 	${RDEPEND}
 "
 BDEPEND="
-	dev-util/meson
+	dev-build/meson
 "
 RDEPEND="
-	dev-lang/nodejs[npm]
 	dev-lang/typescript
 	dev-libs/gjs
 	gui-libs/gtk
@@ -58,5 +57,5 @@ src_compile() {
 src_install() {
 	newbin "${S}/build/src/com.github.Aylur.ags" ags
 	elog "ags wont run without a config file (usually in ~/.config/ags)."
-	elog "For example configs visit https://github.com/Aylur/ags/wiki"
+	elog "For example configs visit https://aylur.github.io/ags-docs/"
 }

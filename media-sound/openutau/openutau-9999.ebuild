@@ -266,7 +266,7 @@ LICENSE="MIT"
 SLOT="0"
 
 RDEPEND="
-    dev-dotnet/dotnet-sdk-bin
+	dev-dotnet/dotnet-sdk-bin
 	sys-fs/fuse-common
 "
 

@@ -3,6 +3,8 @@
 
 EAPI=8
 
+MY_PN="vesktop"
+
 CHROMIUM_LANGS="
 	af am ar bg bn ca cs da de el en-GB en-US es es-419 et fa fi fil fr gu he hi
 	hr hu id it ja kn ko lt lv ml mr ms nb nl pl pt-BR pt-PT ro ru sk sl sr sv
@@ -13,13 +15,13 @@ inherit chromium-2 desktop linux-info unpacker xdg
 
 DESCRIPTION="All-in-one voice and text chat for gamers with Vencord Preinstalled"
 HOMEPAGE="https://github.com/Vencord/Vesktop/"
-SRC_URI="https://github.com/Vencord/Vesktop/releases/download/v${PV}/${PN}-${PV}.tar.gz"
+SRC_URI="https://github.com/Vencord/Vesktop/releases/download/v${PV}/${MY_PN}-${PV}.tar.gz -> ${MY_PN}.tar.gz"
 
 LICENSE="GPL-3+"
 SLOT="0"
 KEYWORDS="~amd64"
-RESTRICT="bindist mirror strip test"
 IUSE="libnotify"
+RESTRICT="bindist mirror strip test"
 
 DEPEND="
 	libnotify? ( x11-libs/libnotify )
@@ -36,11 +38,7 @@ QA_PREBUILT="*"
 
 CONFIG_CHECK="~USER_NS"
 
-S="${WORKDIR}/${PN}-${PV}"
-
-src_unpack() {
-	unpack ${PN}-${PV}.tar.gz
-}
+S="${WORKDIR}/${MY_PN}-${PV}"
 
 src_configure() {
 	default
@@ -49,8 +47,8 @@ src_configure() {
 
 src_install() {
 
-	doicon -s 256 "${FILESDIR}/vesktop.png"
-	domenu "${FILESDIR}/vesktop.desktop"
+	doicon -s 256 "${FILESDIR}/vesktop-bin.png"
+	domenu "${FILESDIR}/vesktop-bin.desktop"
 
 	exeinto "${DESTDIR}"
 
@@ -66,7 +64,7 @@ src_install() {
 
 	[[ -x chrome_crashpad_handler ]] && doins chrome_crashpad_handler
 
-	dosym "${DESTDIR}/vesktop" "/usr/bin/vesktop"
+	dosym "${DESTDIR}/vesktop" "/usr/bin/vesktop-bin"
 
 }
 

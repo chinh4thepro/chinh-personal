@@ -271,6 +271,7 @@ SLOT="0"
 RDEPEND="
 	dev-dotnet/dotnet-sdk-bin
 	sys-fs/fuse-common
+	media-libs/alsa-lib
 "
 
 DEPEND="${RDEPEND}

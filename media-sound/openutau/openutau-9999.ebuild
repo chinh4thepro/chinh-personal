@@ -256,7 +256,7 @@ if [[ ${PV} == *9999* ]]; then
 	inherit git-r3
 else
 	KEYWORDS="~amd64 ~arm ~arm64"
-	SRC_URI="https://github.com/stakira/OpenUtau/archive/refs/tags/build/${PV}.tar.gz"
+	SRC_URI="https://github.com/stakira/OpenUtau/archive/refs/tags/build/${PV}.tar.gz -> ${P}.tar.gz"
 	S="${WORKDIR}/OpenUtau-build-${PV}"
 fi
 
@@ -272,9 +272,6 @@ RDEPEND="
 
 DEPEND="${RDEPEND}
 "
-
-DESTDIR="/usr/share/${PN}"
-BUILTDIR="${WORKDIR}/*Release"
 
 DOTNET_PKG_PROJECTS=( OpenUtau/OpenUtau.csproj )
 

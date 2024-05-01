@@ -14,7 +14,7 @@ if [[ ${PV} == 9999 ]]; then
 else
 	SRC_URI="
 		https://github.com/Aylur/${MY_PN}/releases/download/${MY_PV}/${MY_PN}-${MY_PV}.tar.gz -> ${P}.tar.gz
-		https://github.com/Aylur/${MY_PN}/releases/download/${MY_PV}/node_modules-${MY_PV}.tar.gz -> node_modules.tar.gz
+		https://github.com/Aylur/${MY_PN}/releases/download/${MY_PV}/node_modules-${MY_PV}.tar.gz -> node-modules.tar.gz
 	"
 	KEYWORDS="~amd64"
 	S="${WORKDIR}/ags"
@@ -36,26 +36,39 @@ BDEPEND="
 RDEPEND="
 	dev-lang/typescript
 	dev-libs/gjs
-	gui-libs/gtk
-	gui-libs/gtk-layer-shell
+	x11-libs/gtk+
+	gui-libs/gtk-layer-shell[introspection]
 	dev-libs/gobject-introspection
 	upower? ( sys-power/upower )
 	bluetooth? ( net-wireless/gnome-bluetooth )
 	networkmanager? ( net-misc/networkmanager )
-	tray? ( dev-libs/libdbusmenu )
+	tray? ( dev-libs/libdbusmenu[gtk3] )
 "
 
-src_configure() {
+DESTDIR="/usr/share/${MY_PN}"
+
+src_prepare() {
+	default
 	mv "${WORKDIR}/node_modules" "${S}"
-	meson setup build
+}
+
+src_configure(){
+	local emesonargs=(
+		-Dbuild_types="true"
+	)
+	meson_src_configure || die
 }
 
 src_compile() {
-	meson compile -C build
+	meson_src_compile || die
 }
 
 src_install() {
-	newbin "${S}/build/src/com.github.Aylur.ags" ags
+	meson_src_install --destdir "${DESTDIR}"
+	dosym "${DESTDIR}/com.github.Aylur.ags" "/usr/bin/ags"
+}
+
+pkg_postinst() {
 	elog "ags wont run without a config file (usually in ~/.config/ags)."
 	elog "For example configs visit https://aylur.github.io/ags-docs/"
 }

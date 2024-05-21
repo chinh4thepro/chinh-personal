@@ -21,11 +21,11 @@ HOMEPAGE="https://github.com/mate-desktop/mate-wayland-session"
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE=""
+IUSE="firedecor"
 
 DEPEND="
 	gui-wm/wayfire
-	gui-libs/wayfire-plugins-extra
+	firedecor? ( gui-libs/firedecor )
 	mate-base/mate
 	dev-libs/gobject-introspection
 	x11-libs/startup-notification

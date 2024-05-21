@@ -25,7 +25,8 @@ IUSE=""
 
 DEPEND="
 	gui-wm/wayfire
-	gui-libs/firedecor
+	gui-libs/wf-external-decoration
+	gui-apps/wcm
 	gui-libs/wayfire-plugins-extra
 	mate-base/mate
 	dev-libs/gobject-introspection

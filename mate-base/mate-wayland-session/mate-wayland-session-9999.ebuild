@@ -13,7 +13,7 @@ else
 		https://github.com/mate-desktop/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${PN}.tar.gz
 	"
 	KEYWORDS="~amd64"
-	S="${WORKDIR}/${PN}"
+	S="${WORKDIR}/${PN}-${PV}"
 fi
 
 DESCRIPTION="Mate wayland session"

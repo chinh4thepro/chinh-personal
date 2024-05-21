@@ -11,13 +11,14 @@ inherit meson
 if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/Aylur/${MY_PN}.git"
+	EGIT_SUBMODULES=( "subprojects/gvc" )
 else
 	SRC_URI="
 		https://github.com/Aylur/${MY_PN}/releases/download/${MY_PV}/${MY_PN}-${MY_PV}.tar.gz -> ${P}.tar.gz
 		https://github.com/Aylur/${MY_PN}/releases/download/${MY_PV}/node_modules-${MY_PV}.tar.gz -> node-modules.tar.gz
 	"
 	KEYWORDS="~amd64"
-	S="${WORKDIR}/ags"
+	S="${WORKDIR}/${MY_PN}"
 fi
 
 DESCRIPTION="Aylurs's Gtk Shell (AGS), An eww inspired gtk widget system."
@@ -32,9 +33,10 @@ DEPEND="
 "
 BDEPEND="
 	dev-build/meson
+	dev-lang/typescript
+	net-libs/nodejs[npm]
 "
 RDEPEND="
-	dev-lang/typescript
 	dev-libs/gjs
 	x11-libs/gtk+
 	gui-libs/gtk-layer-shell[introspection]
@@ -47,20 +49,16 @@ RDEPEND="
 
 DESTDIR="/usr/share/${MY_PN}"
 
+src_unpack() {
+	if [[ ${PV} == 9999 ]]; then
+		git-r3-src_unpack
+	fi
+	default
+}
+
 src_prepare() {
 	default
 	mv "${WORKDIR}/node_modules" "${S}"
-}
-
-src_configure(){
-	local emesonargs=(
-		-Dbuild_types="true"
-	)
-	meson_src_configure || die
-}
-
-src_compile() {
-	meson_src_compile || die
 }
 
 src_install() {

@@ -18,7 +18,7 @@ SLOT="0"
 IUSE=""
 
 DEPEND="
-	gui-wm/wayfire
+	<=gui-wm/wayfire-0.8.0-r2
 	x11-libs/gtk+:3
 "
 BDEPEND="

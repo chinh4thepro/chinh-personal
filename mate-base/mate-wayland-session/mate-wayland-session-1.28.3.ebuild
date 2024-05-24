@@ -23,10 +23,13 @@ LICENSE="GPL-2"
 SLOT="0"
 IUSE=""
 
+PATCHES=(
+	"${FILESDIR}"/${P}-config-path-fix.patch
+)
+
 DEPEND="
 	gui-wm/wayfire
 	gui-apps/wcm
-	gui-libs/wayfire-plugins-extra
 	mate-base/mate
 	dev-libs/gobject-introspection
 	x11-libs/startup-notification

@@ -24,7 +24,7 @@ SLOT="0"
 IUSE=""
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-config-path-fix.patch
+	"${FILESDIR}"/${PN}-config-and-permissions-fix-${PV}.patch
 )
 
 DEPEND="

@@ -8,18 +8,12 @@ MY_PN="ags"
 
 inherit meson
 
-if [[ ${PV} == 9999 ]]; then
-	inherit git-r3
-	EGIT_REPO_URI="https://github.com/Aylur/${MY_PN}.git"
-	EGIT_SUBMODULES=( "subprojects/gvc" )
-else
-	SRC_URI="
-		https://github.com/Aylur/${MY_PN}/releases/download/${MY_PV}/${MY_PN}-${MY_PV}.tar.gz -> ${P}.tar.gz
-		https://github.com/Aylur/${MY_PN}/releases/download/${MY_PV}/node_modules-${MY_PV}.tar.gz -> node-modules.tar.gz
-	"
-	KEYWORDS="~amd64"
-	S="${WORKDIR}/${MY_PN}"
-fi
+SRC_URI="
+	https://github.com/Aylur/${MY_PN}/releases/download/${MY_PV}/${MY_PN}-${MY_PV}.tar.gz -> ${P}.tar.gz
+	https://github.com/Aylur/${MY_PN}/releases/download/${MY_PV}/node_modules-${MY_PV}.tar.gz -> node-modules.tar.gz
+"
+KEYWORDS="~amd64"
+S="${WORKDIR}/${MY_PN}"
 
 DESCRIPTION="Aylurs's Gtk Shell (AGS), An eww inspired gtk widget system."
 HOMEPAGE="https://github.com/Alyur/ags"
@@ -47,23 +41,24 @@ RDEPEND="
 	tray? ( dev-libs/libdbusmenu[gtk3] )
 "
 
-DESTDIR="/usr/share/${MY_PN}"
-
-src_unpack() {
-	if [[ ${PV} == 9999 ]]; then
-		git-r3-src_unpack
-	fi
-	default
-}
+BUILD_DIR="${S}/build"
 
 src_prepare() {
 	default
 	mv "${WORKDIR}/node_modules" "${S}"
 }
 
+src_configure() {
+	default
+	local emesonargs=(
+		-Dbuild_types="true"
+	)
+	meson_src_configure || die
+}
+
 src_install() {
-	meson_src_install --destdir "${DESTDIR}"
-	dosym "${DESTDIR}/com.github.Aylur.ags" "/usr/bin/ags"
+	default
+	meson_src_install --destdir "${D}"
 }
 
 pkg_postinst() {

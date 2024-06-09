@@ -8,25 +8,20 @@ MY_PN="ags"
 
 inherit meson
 
+DESCRIPTION="Aylurs's Gtk Shell (AGS), An eww inspired gtk widget system."
+HOMEPAGE="https://github.com/Aylur/ags"
 SRC_URI="
 	https://github.com/Aylur/${MY_PN}/releases/download/${MY_PV}/${MY_PN}-${MY_PV}.tar.gz -> ${P}.tar.gz
 	https://github.com/Aylur/${MY_PN}/releases/download/${MY_PV}/node_modules-${MY_PV}.tar.gz -> node-modules.tar.gz
 "
-KEYWORDS="~amd64"
 S="${WORKDIR}/${MY_PN}"
-
-DESCRIPTION="Aylurs's Gtk Shell (AGS), An eww inspired gtk widget system."
-HOMEPAGE="https://github.com/Alyur/ags"
 
 LICENSE="GPL-3"
 SLOT="0"
+KEYWORDS="~amd64"
 IUSE="upower bluetooth networkmanager tray"
 
-DEPEND="
-	${RDEPEND}
-"
 BDEPEND="
-	dev-build/meson
 	dev-lang/typescript
 	net-libs/nodejs[npm]
 "
@@ -35,10 +30,15 @@ RDEPEND="
 	x11-libs/gtk+
 	gui-libs/gtk-layer-shell[introspection]
 	dev-libs/gobject-introspection
+	media-libs/libpulse
 	upower? ( sys-power/upower )
 	bluetooth? ( net-wireless/gnome-bluetooth )
 	networkmanager? ( net-misc/networkmanager )
 	tray? ( dev-libs/libdbusmenu[gtk3] )
+"
+
+DEPEND="
+	${RDEPEND}
 "
 
 BUILD_DIR="${S}/build"
@@ -49,16 +49,10 @@ src_prepare() {
 }
 
 src_configure() {
-	default
 	local emesonargs=(
 		-Dbuild_types="true"
 	)
-	meson_src_configure || die
-}
-
-src_install() {
-	default
-	meson_src_install --destdir "${D}"
+	meson_src_configure
 }
 
 pkg_postinst() {

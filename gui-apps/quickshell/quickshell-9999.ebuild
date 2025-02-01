@@ -53,16 +53,16 @@ src_configure() {
 		-DDISTRUBUTOR="gentoo overlay (chinh-personal)"
 		-DDISTRIBUTOR_DEBUGINFO_AVAILABLE=NO
 		-DINSTALL_QML_PREFIX=/lib64/qt6/qml
-		-DI3=$(usex i3 OFF ON)
-		-DI3_IPC=$(usex i3 OFF ON)
-		-DHYPRLAND=$(usex hyprland OFF ON)
-		-DHYPRLAND_GLOBAL_SHORTCUTS=$(usex hyprland OFF ON)
-		-DHYPRLAND_FOCUS_GRAB=$(usex hyprland OFF ON)
-		-DSERVICE_MPRIS=$(usex mpris OFF ON)
-		-DSERVICE_PAM=$(usex pam OFF ON)
-		-DSERVICE_PIPEWIRE=$(usex pipewire OFF ON)
-		-DWAYLAND=$(usex wayland OFF ON)
-		-DX11=$(usex X OFF ON)
+		-DI3=$(usex i3 ON OFF)
+		-DI3_IPC=$(usex i3 ON OFF)
+		-DHYPRLAND=$(usex hyprland ON OFF)
+		-DHYPRLAND_GLOBAL_SHORTCUTS=$(usex hyprland ON OFF)
+		-DHYPRLAND_FOCUS_GRAB=$(usex hyprland ON OFF)
+		-DSERVICE_MPRIS=$(usex mpris ON OFF)
+		-DSERVICE_PAM=$(usex pam ON OFF)
+		-DSERVICE_PIPEWIRE=$(usex pipewire ON OFF)
+		-DWAYLAND=$(usex wayland ON OFF)
+		-DX11=$(usex X ON OFF)
 	)
 
 	cmake_src_configure

@@ -50,7 +50,7 @@ BDEPEND="
 
 src_configure() {
 	local mycmakeargs=(
-		-DDISTRUBUTOR="gentoo overlay (chinh-personal)"
+		-DDISTRIBUTOR="gentoo overlay (chinh-personal)"
 		-DDISTRIBUTOR_DEBUGINFO_AVAILABLE=NO
 		-DINSTALL_QML_PREFIX=/lib64/qt6/qml
 		-DI3=$(usex i3 ON OFF)

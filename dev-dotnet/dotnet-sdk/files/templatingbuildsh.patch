@@ -1,9 +1,0 @@
---- build1.sh	2023-10-05 11:11:49.678080750 -0500
-+++ build.sh	2023-10-05 11:12:06.847187852 -0500
-@@ -13,4 +13,4 @@
- done
- 
- scriptroot="$( cd -P "$( dirname "$source" )" && pwd )"
--"$scriptroot/eng/common/build.sh" --pack --build --restore --test $@
-\ No newline at end of file
-+"$scriptroot/eng/common/build.sh" --pack --build --restore --test --verbosity normal $@

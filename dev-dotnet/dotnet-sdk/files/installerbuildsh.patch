@@ -1,8 +1,0 @@
---- build1.sh	2023-10-05 10:23:21.593395940 -0500
-+++ build.sh	2023-10-05 10:26:01.635698532 -0500
-@@ -39,4 +39,4 @@
-     shift
- done
- 
--$DIR/run-build.sh $args
-+$DIR/run-build.sh --verbosity normal $args

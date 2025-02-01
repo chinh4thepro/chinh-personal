@@ -1,8 +1,0 @@
---- build1.sh	2023-10-05 11:07:11.842260282 -0500
-+++ build.sh	2023-10-05 11:07:31.434412138 -0500
-@@ -18,4 +18,4 @@
- export DOTNET_SKIP_FIRST_TIME_EXPERIENCE=1
- export DOTNET_MULTILEVEL_LOOKUP=0
- 
--"$scriptroot/eng/common/build.sh" --build --restore --pack "$@"
-+"$scriptroot/eng/common/build.sh" --build --restore --pack --verbosity normal "$@"

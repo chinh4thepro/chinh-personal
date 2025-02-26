@@ -19,18 +19,18 @@ fi
 LICENSE="LGPL-3"
 SLOT="0"
 
-IUSE="hyprland i3 mpris pam pipewire +wayland X"
+IUSE="hyprland +jemalloc pam pipewire +qtsvg +wayland X"
 
 DEPEND="
 	dev-cpp/cli11
-	dev-libs/jemalloc
 	dev-qt/qtbase:6
 	dev-qt/qtdeclarative:6
-	dev-qt/qtsvg:6
 	dev-util/breakpad
 	x11-libs/libdrm
+	jemalloc? ( dev-libs/jemalloc )
 	pam? ( sys-libs/pam )
 	pipewire? ( media-video/pipewire )
+	qtsvg? ( dev-qt/qtsvg:6 )
 	wayland? (
 		dev-libs/wayland
 		dev-libs/wayland-protocols
@@ -53,12 +53,10 @@ src_configure() {
 		-DDISTRIBUTOR="gentoo overlay (chinh-personal)"
 		-DDISTRIBUTOR_DEBUGINFO_AVAILABLE=NO
 		-DINSTALL_QML_PREFIX=/lib64/qt6/qml
-		-DI3=$(usex i3 ON OFF)
-		-DI3_IPC=$(usex i3 ON OFF)
+		-DUSE_JEMALLOC=$(usex jemalloc ON OFF)
 		-DHYPRLAND=$(usex hyprland ON OFF)
 		-DHYPRLAND_GLOBAL_SHORTCUTS=$(usex hyprland ON OFF)
 		-DHYPRLAND_FOCUS_GRAB=$(usex hyprland ON OFF)
-		-DSERVICE_MPRIS=$(usex mpris ON OFF)
 		-DSERVICE_PAM=$(usex pam ON OFF)
 		-DSERVICE_PIPEWIRE=$(usex pipewire ON OFF)
 		-DWAYLAND=$(usex wayland ON OFF)
